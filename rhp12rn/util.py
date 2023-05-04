@@ -27,12 +27,14 @@ from typing import Sequence, Tuple, List
 from .dynamixel_connector import DynamixelConnector, Field, DynamixelConnectionError, DynamixelCommunicationError
 
 
-def find_grippers(device: str = "/dev/ttyUSB0",
-                  baud_rates: Sequence[int] = (9600, 57600, 115200, 1000000, 2000000, 3000000, 4000000, 4500000)) \
-        -> List[Tuple[str, int, int]]:
+BAUD_RATES = (9_600, 57_600, 115_200, 1_000_000, 2_000_000, 3_000_000, 4_000_000, 4_500_000, 10_500_000)
+
+
+def find_grippers(device: str = "/dev/ttyUSB0", baud_rates: Sequence[int] = BAUD_RATES) -> List[Tuple[str, int, int]]:
     """
     Sweeps the specified baud rates and all possible dynamixel ids to find connected RH-P12-RN[(A)] grippers.
-    :param baud_rates: Baud rates to test
+    :param device:      On which serial device to sweep.
+    :param baud_rates:  Baud rates to test
     :return: List of tuples containing the model name, baud rate and Dynamixel id of each identified gripper.
     """
     found_devices = []
