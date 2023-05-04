@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
 
 setup(
     name="rhp12rn",
-    version="1.0.0",
+    version="1.0.1",
     description="Python controller for the ROBOTIS RH-P12-RN and RH-P12-RN(A) grippers.",
     long_description=long_description,
     long_description_content_type="text/markdown",
