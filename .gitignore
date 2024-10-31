@@ -3,3 +3,4 @@ __pycache__
 *.pyc
 dist/
 umigrip.egg-info/
+.DS_Store
